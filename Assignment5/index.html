@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 5 | By Ramandeep Kaur</title>
+</head>
+<style>
+  .error {
+    color: red;
+  }
+</style>
+<body>
+  <h1>Assignment 4</h1>
+
+  <button id="click-alert">Click to display Computer Languages</button>
+  <br><hr><br>
+
+  <p class="ques2"></p>
+  <br><hr><br>
+  
+  <p class="ques3"></p>
+  <br><hr><br>
+  
+  <button id="hover-alert">Hover on Button to display alert</button>
+  <br><hr><br>
+
+  <p class="ques5"></p>
+
+  <br><br><br><br><br><br><br><br><br><br>
+  
+  <div class="footer">
+    <p style="text-align:center; background-color: rgba(0,0,0,0.2);">Created with <span style="color:red;">&#10084;</span> by &copy; Ramandpkaur</p>
+  </div>
+
+  <script>
+    var compLang = ['C', 'C++', 'Java', 'JavaScript', 'C#', 'Python'];
+    var btn = document.getElementById('click-alert');
+    btn.addEventListener('click', ()=> {
+      alert(`Computer Languages are ${compLang}`);
+    });
+
+    // question 2
+    const employeeData = {name: 'Rohit Agarwal', empNo: 1-198251980, department: 'Finance', age: 32};
+
+    const p = document.querySelector('.ques2');
+
+    p.innerHTML = `Employee <mark>${employeeData.name}</mark> is working in <mark>${employeeData.department}</mark> department. `;
+  
+    // question 3
+    function largestNum(val1, val2, val3) {
+      if(val1 > val2 && val1 > val3) {
+        return val1;
+      } else if (val2 > val3) {
+          return val2;        
+      } else {
+        return val3;
+      }
+    }
+    const num = largestNum(2,3,1);
+    document.querySelector('.ques3').innerText = `Largest number is ${num}`;
+
+    // question 4
+    const btn1 = document.querySelector('#hover-alert');
+    btn1.addEventListener('mouseover', ()=> (alert("You have moved the mouse on the button")));
+
+    // question 5
+    const name = prompt("enter your name: ");
+    
+    const para = document.querySelector('.ques5');
+    if (name) {
+      para.innerText = `Hello ${name}, welcome`;
+    } else {
+      para.className = 'error';
+      para.innerText = "Sorry, you have  not  entered  any name";
+    }
+
+
+  </script>
+  
+</body>
+</html>

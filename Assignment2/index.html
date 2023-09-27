@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 2 | By Ramandeep Kaur</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Assignment 2</h1>
+    <form action="">
+      <h1>USER INFORMATION</h1>
+
+      <div>
+        <label for="fname">First Name</label><br>
+        <input type="text" name="fname" id="fname" placeholder="Enter your First Name"  />
+      </div>
+      <br>
+      <div>
+        <label for="fname">Last Name</label><br>
+        <input type="text" name="lname" id="lname" placeholder="Enter your Last Name"  />
+      </div>
+      <br>
+      <div>
+        <label for="address">Address</label><br>
+        <textarea name="address" id="address" cols="30" rows="10" placeholder="Enter your Address"></textarea>      
+      </div>
+      <br>        
+      <div>
+        <label for="email">Email</label><br>
+        <input type="email" name="email" id="email" placeholder="Enter your Email ID"  />
+      </div>
+      <br>
+      <div>
+        <label for="dob">Date of Birth</label><br>
+        <input type="date" name="dob" id="dob" />
+      </div>
+      <br>
+      <div>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+
+    <br><hr>
+
+    <h2>AUDIO ELEMENT</h2>
+
+    <audio controls autoplay>
+      <source src="http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_01.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <br><hr>
+
+    <h2>VIDEO ELEMENT</h2>
+
+    <video width="320" height="240" controls autoplay loop>
+      <source src="" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    
+    <br><hr>
+
+    <h2>DRAW CIRCLES</h2>
+
+    <svg height="180" width="300">
+      <circle cx="80" cy="100" r="60" stroke="none" fill="pink" />
+      <circle cx="240" cy="100" r="60" stroke="none" fill="skyblue" />
+      Sorry, your browser does not support inline SVG.  
+    </svg> 
+
+  </div>
+    
+  <br><hr>
+
+  <h2>STORE DATA IN LOCAL STORAGE</h2>
+  <p id="user-data">Hello User!</p>
+
+  
+  <div class="footer">
+    <p style="text-align:center; background-color: rgba(0,0,0,0.2);">Created with <span style="color:red;">&#10084;</span> by &copy; Ramandpkaur</p>
+  </div>
+
+</body>
+
+<script>
+  const fname = document.querySelector('#fname');
+  const lname = document.querySelector('#lname');
+  const email = document.querySelector('#email');
+  const form = document.querySelector('form');
+  const p = document.getElementById('user-data');
+
+  const user = (localStorage.getItem('userinfo'))? JSON.parse(localStorage.getItem('userinfo')) : {};
+
+  displayData();
+
+  form.addEventListener("submit", (e)=> {
+    e.preventDefault();
+
+    user.firstname = fname.value;
+    user.lastname = lname.value;
+    user.email = email.value;
+    
+    localStorage.setItem('userinfo', JSON.stringify(user));
+    displayData();   
+  });
+
+  function displayData() {
+    p.innerText = `Hello ${user.firstname} ${user.lastname}! Your email ID is ${user.email}`;
+  }
+
+</script>
+</html>
