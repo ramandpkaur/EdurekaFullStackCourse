@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 8 | By Ramandeep Kaur</title>
+
+  <!-- Including jQuery CDN -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <!-- Including jQuery files from Keith Wood countdown plugin -->
+  <script src="js/jquery.plugin.min.js"></script>
+  <script src="js/jquery.countdown.js"></script>
+
+  <!-- CSS Styling -->
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <div id="showcase">
+    <div class="heading">
+      <h2>Countdown to 2024</h2>
+      <h1>New Year</h1>
+    </div>
+    <div class="my-countdown">
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      var newYear = new Date();
+      newYear = new Date(newYear.getFullYear() + 1, 1 - 1, 1);
+      $('.my-countdown').countdown({until:newYear});
+      $('my-countdown').text(newYear.getFullYear());
+    });
+  </script>
+</body>
+</html>
