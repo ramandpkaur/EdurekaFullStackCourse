@@ -7,9 +7,12 @@ $(function() {
     autoplay: true, //to set items slide show
     autoplayTimeout: 3000, //default autoplay time is 5 seconds 
     autoplayHoverPause: true,
+    nav: true, //adds two small arrows buttons to navigate
+    dots: true, //adds dots that indicate navigation; Can be used with owl-them only
     responsive: {
       0: {
         items: 1,
+        mouseDrag: true, //For mobile devices, enable mouseDrag
       }, 
       500: {
         items: 2,
