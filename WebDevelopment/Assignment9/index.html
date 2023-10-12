@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 9 | Edureka</title>
+
+  <style>
+    body {
+      background-color: blueviolet;
+    }
+    .container {
+      background-color: antiquewhite;
+      width: 60%;
+      min-height: 40vh;
+      margin: 30vh auto;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 5px;
+      box-shadow: 0 0 5px 5px rgb(84, 2, 160);
+      text-align: center;
+    }
+    p {
+      transition: all 0.3s;
+    }
+    button {
+      margin-bottom: 1rem;
+      background-color: blueviolet;
+      color: white;
+      font-weight: bold;
+      font-size: medium;
+      padding: 5px 10px;
+      border: 2px solid blueviolet;
+      border-radius: 3px;
+      transition: all 0.3s;
+    }
+    button:hover {
+      background-color: white;
+      color: blueviolet;
+      box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.2);
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <p id="test">The AJAX text will be printed here.</p>
+    <button onclick="loadData()">Click to make an AJAX call</button>
+  </div>
+
+
+  <script>
+    function loadData() {
+      if(window.XMLHttpRequest) {
+        var xmlhttp = new XMLHttpRequest();
+      } else {
+        var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      
+      // Check if the response is received to print the response
+      xmlhttp.onreadystatechange = function() {
+        if(xmlhttp.readyState==4 && xmlhttp.status==200) {
+          document.querySelector('#test').innerHTML = xmlhttp.responseText;
+        }
+      };
+
+      // Define the request 
+      xmlhttp.open("GET", "sample.txt", true);
+
+      // Send the request
+      xmlhttp.send();
+    }
+  </script>
+</body>
+</html>
